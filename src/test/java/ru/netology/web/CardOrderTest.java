@@ -18,16 +18,16 @@ public class CardOrderTest {
     }
 
 
-    @Test
+   @Test
     public void shouldSubmitRequest() {
         DataGenerator.User user = DataGenerator.Registration.generateByCard("ru");
         SelenideElement form = $("[method=post]");
-        form.$("[data-test-id=city] input").setValue("Саратов");
+        form.$("[data-test-id=city] input").setValue(user.getCity());
         form.$("[data-test-id=date] input").doubleClick();
         form.$("[data-test-id=date] input").sendKeys(Keys.DELETE);
         form.$("[data-test-id=date] input").setValue(DataGenerator.iNeedThisDate(0));
-        form.$("[data-test-id=name] input").setValue("Светикова Света");
-        form.$("[data-test-id=phone] input").setValue("+71234567890");
+        form.$("[data-test-id=name] input").setValue(user.getName());
+        form.$("[data-test-id=phone] input").setValue(user.getPhone());
         form.$("[data-test-id=agreement] .checkbox__box").click();
         form.$("[role=button] .button__content").click();
         $("[data-test-id=success-notification] .notification__content").shouldBe(visible, Duration.ofSeconds(15)).shouldHave(exactText("Встреча успешно запланирована на " + DataGenerator.iNeedThisDate(0)));
