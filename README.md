@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/w91oc4ylp1vvc2tj?svg=true)](https://ci.appveyor.com/project/kseniia/patternstasknumber1)
